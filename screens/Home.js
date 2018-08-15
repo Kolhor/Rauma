@@ -6,16 +6,73 @@ import CustomHeader from "../components/CustomHeader";
 import { Container, Header, Content } from "native-base";
 
 class Home extends Component {
-  constructor(props) {
+  render() {
+    return (
+      <Container>
+        <CustomHeader title="Hjem" openDrawer={() => this.props.navigation.openDrawer()} />
+        <Content
+          contentContainerStyle={{
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        >
+          <Text>Home Screen</Text>
+        </Content>
+      </Container>
+    );
+  }
+}
+
+/*  async loadWebsite() {
+    console.log("loadWebsite");
+    const searchUrl = `https://www.rauma.kommune.no`;
+    const response = await fetch(searchUrl); // fetch page
+
+    const htmlString = await response.text(); // get response text
+    console.log("loaded website");
+    this.loadCheerio(htmlString);
+  }
+
+  loadCheerio = async htmlString => {
+    console.log("loadCheerio");
+    const $ = await cheerio.load(htmlString);
+    let akt = [];
+    let aktuelt = [$(
+      "#ctl00_ctl00_ctl00_innhold_MidtSone_ctl01_FrontLayoutListeId_176_FrontLayoutListeId_176_sisteArtiklerListe_ctl01_HyperLink1"
+    ),];
+}
+
+render() {
+  let content =
+    this.state.aktuelt !== null ? (
+      <Text>{this.state.aktuelt}</Text>
+    ) : (
+      <Button title="hei" onPress={() => this.loadWebsite()} />
+    );
+  console.log("oppdatert");
+  return (
+    <Container>
+      <CustomHeader title="Hjem" drawerOpen={() => this.props.navigation.navigate("DrawerOpen")} />
+
+      <Content
+        contentContainerStyle={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <Text>Home Screen</Text>
+        <ScrollView>{content}</ScrollView>
+      </Content>
+    </Container>
+  );
+}*/
+
+/*  constructor(props) { //Dette er for forsiden på rauma kommune
     super(props);
     this.state = { aktuelt: null };
   }
-  /*static navigationOptions = {
-    drawerIcon:(
-      <Image source={require('../assets/')}
-    )
-  }*/
-
   async loadWebsite() {
     console.log("loadWebsite");
     const searchUrl = `https://www.rauma.kommune.no`;
@@ -84,32 +141,6 @@ class Home extends Component {
     akt.push(akt1, akt2, akt3, akt4, akt5, akt6, akt7, akt8, akt9, akt10, akt11, akt12);
     this.setState({ aktuelt: akt });
   };
-
-  render() {
-    let content =
-      this.state.aktuelt !== null ? (
-        <Text>{this.state.aktuelt}</Text>
-      ) : (
-        <Button title="hei" onPress={() => this.loadWebsite()} />
-      );
-    console.log("oppdatert");
-    return (
-      <Container>
-        <CustomHeader title="Hjem" drawerOpen={() => this.props.navigation.navigate("DrawerOpen")} />
-
-        <Content
-          contentContainerStyle={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
-          <Text>Home Screen</Text>
-          <ScrollView>{content}</ScrollView>
-        </Content>
-      </Container>
-    );
-  }
 }
-
+*/
 export default Home;

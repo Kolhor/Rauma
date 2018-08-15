@@ -1,60 +1,58 @@
-import React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import React from "react";
+import { Text, View, StyleSheet, Image } from "react-native";
 
-import { StackNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
+import { StackNavigator, createDrawerNavigator, DrawerItems } from "react-navigation";
 import {
-	Activities,
-	Culture,
-	Fees,
-	Health,
-	Home,
-	Nature,
-	News,
-	Politics,
-	School,
-	Transport,
-	WorkLife
-} from './screens';
-import { Container, Content, Header, Body, Icon } from 'native-base';
+  Activities,
+  Culture,
+  Fees,
+  Health,
+  Home,
+  Nature,
+  News,
+  Politics,
+  School,
+  Transport,
+  WorkLife
+} from "./screens";
+import { Container, Content, Header, Body, Icon } from "native-base";
 export default class App extends React.Component {
-	render() {
-		return <MyApp />;
-	}
+  render() {
+    return <MyApp />;
+  }
 }
 const CustomDrawerContentComponent = props => (
-	<Container>
-		<Header
-			style={{
-				height: 200,
-				backgroundColor: 'white',
-				alignItems: 'center',
-				justifyContent: 'center'
-			}}
-		>
-			<Body>
-				<Image
-					style={styles.drawerImage}
-					source={require('./assets/rauma.png')}
-				/>
-			</Body>
-		</Header>
-		<Content>
-			<DrawerItems {...props} />
-		</Content>
-	</Container>
+  <Container>
+    <Header
+      style={{
+        height: 200,
+        backgroundColor: "white",
+        alignItems: "center",
+        justifyContent: "center"
+      }}
+    >
+      <Body>
+        <Image style={styles.drawerImage} source={require("./assets/rauma.png")} />
+      </Body>
+    </Header>
+    <Content>
+      <DrawerItems {...props} />
+    </Content>
+  </Container>
 );
-const MyApp = DrawerNavigator(
-	{
-		Home: { screen: Home },
-		Transport: { screen: Transport }
-	},
-	{
-		initialRouteName: 'Home',
-		contentComponent: CustomDrawerContentComponent,
-		drawerOpenRoute: 'DrawerOpen',
-		drawerCloseRoute: 'DrawerClose',
-		drawerToggleRoute: 'DrawerToggle'
-	}
+const MyApp = createDrawerNavigator(
+  {
+    Home: { screen: Home },
+    Transport: { screen: Transport },
+    School: { screen: School }
+  },
+  {
+    initialRouteName: "Home",
+    contentComponent: CustomDrawerContentComponent,
+    drawerOpenRoute: "DrawerOpen",
+    drawerCloseRoute: "DrawerClose",
+    drawerToggleRoute: "DrawerToggle"
+  }
 );
 
 /*render() {
@@ -77,15 +75,15 @@ export default StackNavigator({
 });*/
 
 styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
 
-	drawerImage: {
-		alignSelf: 'center',
-		height: 150,
-		width: 121
-	}
+  drawerImage: {
+    alignSelf: "center",
+    height: 150,
+    width: 121
+  }
 });
