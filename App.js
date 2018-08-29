@@ -1,7 +1,11 @@
 import React from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 
-import { StackNavigator, createDrawerNavigator, DrawerItems } from "react-navigation";
+import {
+  StackNavigator,
+  createDrawerNavigator,
+  DrawerItems
+} from "react-navigation";
 import {
   Activities,
   Culture,
@@ -32,7 +36,10 @@ const CustomDrawerContentComponent = props => (
       }}
     >
       <Body>
-        <Image style={styles.drawerImage} source={require("./assets/rauma.png")} />
+        <Image
+          style={styles.drawerImage}
+          source={require("./assets/rauma.png")}
+        />
       </Body>
     </Header>
     <Content>
@@ -47,7 +54,7 @@ const MyApp = createDrawerNavigator(
     School: { screen: School }
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "School",
     contentComponent: CustomDrawerContentComponent,
     drawerOpenRoute: "DrawerOpen",
     drawerCloseRoute: "DrawerClose",
